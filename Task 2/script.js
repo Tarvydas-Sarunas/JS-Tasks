@@ -14,7 +14,7 @@ let count = 0;
 // 2. padaryti jam eventListineri su click
 btn.addEventListener("click", (event) => {
   event.preventDefault();
-  // 4. skaiciuoti click skaiciu count += count
+  // 4. skaiciuoti click skaiciu count++
   count++;
 
   // 5. i click__staste apendinti count
