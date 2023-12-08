@@ -43,10 +43,12 @@ function calculateWeight() {
 // 7. kuriu ul ir li i kuriuos talpinu textContent paskaiciavimus
 function rezToUl(kg, lb, g, oz) {
   const ul = document.createElement("ul");
+  ul.classList.add("rezultats");
   const li1 = document.createElement("li");
+
   li1.textContent = `${kg} kg yra ${lb} lb`;
   const li2 = document.createElement("li");
-  li2.textContent = `${kg} kg yra ${g} g`;
+  li2.textContent = ` ${kg} kg yra ${g} g`;
   const li3 = document.createElement("li");
   li3.textContent = `${kg} kg yra ${oz} oz`;
   ul.append(li1, li2, li3);
@@ -57,6 +59,7 @@ function rezToUl(kg, lb, g, oz) {
 // kuri taip pat kuriu
 function rezToH2(text) {
   const h2 = document.createElement("h2");
+  h2.classList.add("rezultats");
   h2.textContent = text;
   outputDiv.append(h2);
 }
