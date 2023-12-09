@@ -46,6 +46,8 @@ const cardContainerDiv = document.createElement("div");
 cardContainerDiv.classList.add("cards-container");
 outputDiv.append(cardContainerDiv);
 
+const ulContainerDiv = document.createElement("div");
+
 // 6. kuriu funkcija createACard
 function createACard(carsBrand, brandModels) {
   //   <!-- one card -->
@@ -66,20 +68,22 @@ function createACard(carsBrand, brandModels) {
   cardContainerDiv.append(oneCardDiv);
 
   oneCardDiv.addEventListener("click", () => {
-    // const ulContainerDiv = document.createElement("div");
-
-    oneCardDiv.append(ulContainerDiv);
     createAListOfModels(brandModels);
+    oneCardDiv.append(ulContainerDiv);
   });
 }
 
-function createAListOfModels(brandModels) {
-  brandModels.forEach((element) => {
-    const ul = document.createElement("ul");
+function createAListOfModels(models) {
+  const ul = document.createElement("ul");
+  const h3Models = document.createElement("h3");
+  h3Models.classList.add("h3-models");
+  h3Models.textContent = "Models";
+  models.forEach((element) => {
     const li = document.createElement("li");
     li.textContent = element;
     ul.append(li);
   });
-  // containerUl.innerHTML = "";
-  // containerUl.append(ul);
+
+  ulContainerDiv.innerHTML = "";
+  ulContainerDiv.append(h3Models, ul);
 }
