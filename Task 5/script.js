@@ -20,23 +20,26 @@ const users = [
   { id: "9", name: "Daniel Cane", age: 51, hasDog: true },
 ];
 
-function filterDogOwners(arr) {
-  const hasDog = arr.filter((obj) => obj.hasDog === true);
+// 1. funkcija "filterDogOwners"
+function filterDogOwners(usersArr) {
+  const hasDog = usersArr.filter((usersArrObj) => usersArrObj.hasDog === true);
   return hasDog;
 }
 const HasPet = filterDogOwners(users);
 console.log("HasPet ===", HasPet);
 
-function filterAdults(arr) {
-  const adults = arr.filter((obj) => obj.age >= 18);
+// 2. funkcija "filterAdults"
+function filterAdults(usersArr) {
+  const adults = usersArr.filter((usersArrObj) => usersArrObj.age >= 18);
   return adults;
 }
 const isAdult = filterAdults(users);
 console.log("isAdult ===", isAdult);
 
-function hasDogAndAdult(arr) {
-  const adultsHasDog = arr.filter(
-    (obj) => obj.hasDog === true && obj.age >= 18
+// gal 2 nelabai supratau ar reikia taip
+function hasDogAndAdult(usersArr) {
+  const adultsHasDog = usersArr.filter(
+    (usersArrObj) => usersArrObj.hasDog === true && usersArrObj.age >= 18
   );
   return adultsHasDog;
 }
