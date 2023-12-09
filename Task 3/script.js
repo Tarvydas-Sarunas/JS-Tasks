@@ -19,6 +19,12 @@ const outputDiv = document.getElementById("output");
 const messagePTag = document.getElementById("message");
 // console.log("btn ===", messagePTag);
 
+// 8. duodu btn .addListener kuris po click daro dvi funkcijas
+btn.addEventListener("click", () => {
+  getApiContent();
+  hideTheMessage();
+});
+
 // 2. isitraukiam su fetch ir then is endpoint informacija
 function getApiContent() {
   fetch(ENDPOINT)
@@ -28,7 +34,6 @@ function getApiContent() {
     // console.log("data ===", data);
     .catch((error) => console.log("error ===", error));
 }
-// getApiContent();
 
 // 4. kuriu funkcija getUser kuri suks per data cikla forEach ir sukurs du kintamuosius login ir avatarUrl
 function getUserInfo(endpointArr) {
@@ -42,7 +47,7 @@ function getUserInfo(endpointArr) {
   });
 }
 
-// susukuriu konteineri kur bus visos korteles
+// 5. susikuriu konteineri kur bus visos korteles
 const cardContainerDiv = document.createElement("div");
 cardContainerDiv.classList.add("cards-container");
 outputDiv.append(cardContainerDiv);
@@ -72,7 +77,9 @@ function createACard(userLog, userAvUrl) {
   oneCardDiv.append(userAvatar, oneCardTextBodyDiv);
   cardContainerDiv.append(oneCardDiv);
 }
-// 5. duodu btn .addListener kuris po click daro dvi funkcijas
-// 5a. kuria card ir paslepiu message p tag
 
 // 7. Kuriu funkcija hideTheMessage
+// 7a. kuria card ir paslepiu message p tag
+function hideTheMessage() {
+  messagePTag.style.display = "none";
+}
