@@ -28,7 +28,7 @@ function getApiContent() {
     // console.log("data ===", data);
     .catch((error) => console.log("error ===", error));
 }
-getApiContent();
+// getApiContent();
 
 // 4. kuriu funkcija getUser kuri suks per data cikla forEach ir sukurs du kintamuosius login ir avatarUrl
 function getUserInfo(endpointArr) {
@@ -42,9 +42,36 @@ function getUserInfo(endpointArr) {
   });
 }
 
-// 6. kuriu funkcija createACard
+// susukuriu konteineri kur bus visos korteles
+const cardContainerDiv = document.createElement("div");
+cardContainerDiv.classList.add("cards-container");
+outputDiv.append(cardContainerDiv);
 
-function createACard(userLog, userAvUrl) {}
+// 6. kuriu funkcija createACard
+function createACard(userLog, userAvUrl) {
+  //   <!-- one card -->
+  const oneCardDiv = document.createElement("div");
+  oneCardDiv.classList.add("card");
+
+  //     <img src="..." class="card-img" alt="...">
+  const userAvatar = document.createElement("img");
+  userAvatar.src = userAvUrl;
+  userAvatar.alt = `${userLog} avatar`;
+  userAvatar.classList.add("card-img");
+
+  //     <div class="text-body">
+  const oneCardTextBodyDiv = document.createElement("div");
+  oneCardTextBodyDiv.classList.add("card-text-body");
+
+  //       <h2 class="card-user-login">Some quick</h2>
+  const oneCardTextH2 = document.createElement("h2");
+  oneCardTextH2.classList.add("card-text");
+  oneCardTextH2.textContent = userLog;
+  //   <!-- end one card -->
+  oneCardTextBodyDiv.append(oneCardTextH2);
+  oneCardDiv.append(userAvatar, oneCardTextBodyDiv);
+  cardContainerDiv.append(oneCardDiv);
+}
 // 5. duodu btn .addListener kuris po click daro dvi funkcijas
 // 5a. kuria card ir paslepiu message p tag
 
