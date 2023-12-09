@@ -14,11 +14,38 @@ būti stilizuota su CSS ir būti responsive;
 const ENDPOINT = "https://api.github.com/users";
 
 // 1. nusitaikau i btn, output, message
-// 2. isitraukiam su fetch ir then endpoint informacija
-// 3.antrame then iskvieciu funkcija kuri suks cikla forEach
-// 4. suku cikla ir darau du kintamuosius kuriuas pateikiu kaip argumenta i funkcija creatCard()
+const btn = document.getElementById("btn");
+const outputDiv = document.getElementById("output");
+const messagePTag = document.getElementById("message");
+// console.log("btn ===", messagePTag);
+
+// 2. isitraukiam su fetch ir then is endpoint informacija
+function getApiContent() {
+  fetch(ENDPOINT)
+    .then((resp) => resp.json())
+    // 3.antrame then iskvieciu funkcija kuri suks cikla forEach
+    .then((data) => getUserInfo(data))
+    // console.log("data ===", data);
+    .catch((error) => console.log("error ===", error));
+}
+getApiContent();
+
+// 4. kuriu funkcija getUser kuri suks per data cikla forEach ir sukurs du kintamuosius login ir avatarUrl
+function getUserInfo(endpointArr) {
+  endpointArr.forEach((endpointObj) => {
+    // 5. suku cikla ir darau du kintamuosius kuriuas pateikiu kaip argumenta i funkcija creatCard()
+    const login = endpointObj.login;
+    // console.log("login ===", login);
+    const avatarUrl = endpointObj.avatar_url;
+    // console.log("avatarUrl ===", avatarUrl);
+    createACard(login, avatarUrl);
+  });
+}
+
+// 6. kuriu funkcija createACard
+
+function createACard(userLog, userAvUrl) {}
 // 5. duodu btn .addListener kuris po click daro dvi funkcijas
 // 5a. kuria card ir paslepiu message p tag
 
-// 6. kuriu funkcija createACard
 // 7. Kuriu funkcija hideTheMessage
