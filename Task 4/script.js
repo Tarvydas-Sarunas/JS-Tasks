@@ -75,9 +75,11 @@ function createACard(carsBrand, brandModels) {
 
 function createAListOfModels(models) {
   const ul = document.createElement("ul");
+  ul.classList.add("models-ul");
   const h3Models = document.createElement("h3");
   h3Models.classList.add("h3-models");
-  h3Models.textContent = "Models";
+  h3Models.textContent = "Models:";
+  const hr = document.createElement("hr");
   models.forEach((element) => {
     const li = document.createElement("li");
     li.textContent = element;
@@ -85,5 +87,5 @@ function createAListOfModels(models) {
   });
 
   ulContainerDiv.innerHTML = "";
-  ulContainerDiv.append(h3Models, ul);
+  ulContainerDiv.append(hr, h3Models, ul);
 }

@@ -51,14 +51,20 @@
   overflow: hidden;
   flex-basis: auto;
 }
-.card-img {
-  width: 100%;
-  padding-bottom: 20px;
-}
 .card-text {
   text-align: center;
 }
-
+.h3-models {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+.models-ul {
+  text-align: center;
+}
+hr {
+  margin: 10px 0;
+}
 /* mobiliems */
 @media screen and (min-width: 450px) {
   .card {
