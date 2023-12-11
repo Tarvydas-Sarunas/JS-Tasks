@@ -16,6 +16,14 @@ class Movie {
   budget;
 
   constructor(argTitle, argDirector, argBudget) {
+    if (typeof argTitle !== "string" || typeof argDirector !== "string") {
+      console.log("Title ir Director turi buti String");
+      return;
+    } else if (typeof argBudget !== "number") {
+      console.log("Budget turi buti Number");
+      return;
+    }
+
     this.title = argTitle;
     this.director = argDirector;
     this.budget = argBudget;
@@ -29,3 +37,6 @@ class Movie {
     }
   }
 }
+const mowies = new Movie("Rauginti kopustai", "Juazas Rugis", 10000000000);
+const filmas = mowies.wasExpensive();
+console.log("filmas ===", filmas);
