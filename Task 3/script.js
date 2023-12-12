@@ -48,30 +48,25 @@ function getUserInfo(endpointArr) {
 }
 
 // 5. susikuriu konteineri kur bus visos korteles
-const cardContainerDiv = document.createElement("div");
-cardContainerDiv.classList.add("cards-container");
+const cardContainerDiv = createHtmlEl("div", "cards-container");
 outputDiv.append(cardContainerDiv);
 
 // 6. kuriu funkcija createACard
 function createACard(userLog, userAvUrl) {
   //   <!-- one card -->
-  const oneCardDiv = document.createElement("div");
-  oneCardDiv.classList.add("card");
+  const oneCardDiv = createHtmlEl("div", "card");
 
   //     <img src="..." class="card-img" alt="...">
-  const userAvatar = document.createElement("img");
+  const userAvatar = createHtmlEl("img", "card-img");
   userAvatar.src = userAvUrl;
   userAvatar.alt = `${userLog} avatar`;
-  userAvatar.classList.add("card-img");
 
   //     <div class="text-body">
-  const oneCardTextBodyDiv = document.createElement("div");
-  oneCardTextBodyDiv.classList.add("card-text-body");
+  const oneCardTextBodyDiv = createHtmlEl("div", "card-text-body");
 
   //       <h2 class="card-user-login">Some quick</h2>
-  const oneCardTextH2 = document.createElement("h2");
-  oneCardTextH2.classList.add("card-text");
-  oneCardTextH2.textContent = userLog;
+  const oneCardTextH2 = createHtmlEl("h2", "card-text", userLog);
+
   //   <!-- end one card -->
   oneCardTextBodyDiv.append(oneCardTextH2);
   oneCardDiv.append(userAvatar, oneCardTextBodyDiv);
@@ -82,4 +77,15 @@ function createACard(userLog, userAvUrl) {
 // 7a. kuria card ir paslepiu message p tag
 function hideTheMessage() {
   messagePTag.style.display = "none";
+}
+
+// Funkcija kuri sukuria nprimus elementus
+function createHtmlEl(tagName, className, text = undefined) {
+  // sukuriu element
+  const newEl = document.createElement(tagName);
+  // uzdedu jam klase
+  newEl.className = className;
+  // ikelem text jei yra paduotas
+  newEl.textContent = text;
+  return newEl;
 }

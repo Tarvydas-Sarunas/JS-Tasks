@@ -32,8 +32,6 @@ function getCars(endpointArr) {
     const brand = endpointObj.brand;
     const models = endpointObj.models;
 
-    console.log("brand ===", brand, models);
-
     createACard(brand, models);
     createAListOfModels(models);
   });
