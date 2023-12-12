@@ -26,7 +26,6 @@ function filterDogOwners(usersArr) {
   return hasDog;
 }
 const HasPet = filterDogOwners(users);
-console.log("HasPet ===", HasPet);
 
 // 2. funkcija "filterAdults"
 function filterAdults(usersArr) {
@@ -34,7 +33,6 @@ function filterAdults(usersArr) {
   return adults;
 }
 const isAdult = filterAdults(users);
-console.log("isAdult ===", isAdult);
 
 // gal 2 nelabai supratau ar reikia taip
 function hasDogAndAdult(usersArr) {
@@ -44,4 +42,3 @@ function hasDogAndAdult(usersArr) {
   return adultsHasDog;
 }
 const adultsHasDog = hasDogAndAdult(users);
-console.log("adultsHasDog ===", adultsHasDog);

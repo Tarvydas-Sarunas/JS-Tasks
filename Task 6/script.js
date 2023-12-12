@@ -29,7 +29,6 @@ function getUserAverageAge(usersArr) {
   return Math.floor(age / usersArr.length);
 }
 const avgAge = getUserAverageAge(users);
-console.log("avgAge ===", avgAge);
 
 // 2. funkcija "getUsersNames"
 function getUsersNames(usersArr) {
@@ -37,4 +36,3 @@ function getUsersNames(usersArr) {
   return justNames;
 }
 const names = getUsersNames(users);
-console.log("names ===", names);

@@ -21,8 +21,8 @@ class Calculator {
   }
 }
 
-const calculator = new Calculator();
-const sudetis = calculator.sum(6, 7);
-const atimtis = calculator.subtraction(15, 3);
-const daugyba = calculator.multiplication(2, 9);
-const dalyba = calculator.division(21, 7);
+const calc = new Calculator();
+const sudetis = calc.sum(6, 7);
+const atimtis = calc.subtraction(15, 3);
+const daugyba = calc.multiplication(2, 9);
+const dalyba = calc.division(21, 7);

@@ -39,7 +39,7 @@ function getCars(endpointArr) {
   });
 }
 
-// B. ant kiek vieno automobilio gamintojo korteles paspaudus atsidaro dar puslapis luriame matosi kiek vienas automobilio gamintojo modelis
+// B. ant kiek vieno automobilio gamintojo korteles paspaudus atsidaro ul kuriame matosi automobilio gamintojo modelis
 
 // 5. susikuriu konteineri kur bus visos korteles
 const cardContainerDiv = document.createElement("div");
@@ -73,19 +73,43 @@ function createACard(carsBrand, brandModels) {
   });
 }
 
+// funkcuja kuri sugeneruos brando modeliu i lista
 function createAListOfModels(models) {
-  const ul = document.createElement("ul");
-  ul.classList.add("models-ul");
-  const h3Models = document.createElement("h3");
-  h3Models.classList.add("h3-models");
-  h3Models.textContent = "Models:";
-  const hr = document.createElement("hr");
+  // sukuriu UlEl
+  const ul = createHtmlEl("ul", "models-ul");
+  // const ul = document.createElement("ul");
+  // ul.classList.add("models-ul");
+
+  // sukuriu jam h3
+  const h3Models = createHtmlEl("h3", "h3-models", "Models:");
+  // const h3Models = document.createElement("h3");
+  // h3Models.classList.add("h3-models");
+  // h3Models.textContent = "Models:";
+
+  // sukuriu hr
+  const hr = createHtmlEl("hr");
+  // const hr = document.createElement("hr");
+
+  // suku cikla ir dedu modelius i lista
   models.forEach((element) => {
-    const li = document.createElement("li");
-    li.textContent = element;
+    const li = createHtmlEl("li", "models-li", element);
+    // const li = document.createElement("li");
+
+    // li.textContent = element;
     ul.append(li);
   });
 
   ulContainerDiv.innerHTML = "";
   ulContainerDiv.append(hr, h3Models, ul);
+}
+
+// Funkcija kuri sukuria nprimus elementus
+function createHtmlEl(tagName, className, text = undefined) {
+  // sukuriu element
+  const newEl = document.createElement(tagName);
+  // uzdedu jam klase
+  newEl.className = className;
+  // ikelem text jei yra paduotas
+  newEl.textContent = text;
+  return newEl;
 }
