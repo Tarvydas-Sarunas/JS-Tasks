@@ -42,33 +42,34 @@ function getCars(endpointArr) {
 // B. ant kiek vieno automobilio gamintojo korteles paspaudus atsidaro ul kuriame matosi automobilio gamintojo modelis
 
 // 5. susikuriu konteineri kur bus visos korteles
-const cardContainerDiv = document.createElement("div");
-cardContainerDiv.classList.add("cards-container");
+const cardContainerDiv = createHtmlEl("div", "cards-container");
 outputDiv.append(cardContainerDiv);
 
+// sukuriu div i kuri bus talpinami ul is funcijos cread a card
 const ulContainerDiv = document.createElement("div");
 
-// 6. kuriu funkcija createACard
+// 6. kuriu funkcija createACard kuri kurs elementus ir des i ju konteineri
 function createACard(carsBrand, brandModels) {
   //   <!-- one card -->
-  const oneCardDiv = document.createElement("div");
-  oneCardDiv.classList.add("card");
+  const oneCardDiv = createHtmlEl("div", "card");
 
   //     <div class="text-body">
-  const oneCardTextBodyDiv = document.createElement("div");
-  oneCardTextBodyDiv.classList.add("card-text-body");
+  const oneCardTextBodyDiv = createHtmlEl("div", "card-text-body");
 
   //       <h2 class="card-user-login">Some quick</h2>
-  const oneCardTextH2 = document.createElement("h2");
-  oneCardTextH2.classList.add("card-text");
-  oneCardTextH2.textContent = carsBrand;
-  //   <!-- end one card -->
+  const oneCardTextH2 = createHtmlEl("h2", "card-text", carsBrand);
+
+  //  vienoje korteleje kas turi buti viska suapendinu i savo vietas
   oneCardTextBodyDiv.append(oneCardTextH2);
   oneCardDiv.append(oneCardTextBodyDiv);
   cardContainerDiv.append(oneCardDiv);
 
+  // padarau eventListeneri kortelei kad ja paspaudus utsidaro jo modeliu ul
   oneCardDiv.addEventListener("click", () => {
+    // iskvieciu modeliu ul gaminimo funkcija
     createAListOfModels(brandModels);
+
+    // ul appendinu i vienos korteles containeri
     oneCardDiv.append(ulContainerDiv);
   });
 }
@@ -77,29 +78,24 @@ function createACard(carsBrand, brandModels) {
 function createAListOfModels(models) {
   // sukuriu UlEl
   const ul = createHtmlEl("ul", "models-ul");
-  // const ul = document.createElement("ul");
-  // ul.classList.add("models-ul");
 
   // sukuriu jam h3
   const h3Models = createHtmlEl("h3", "h3-models", "Models:");
-  // const h3Models = document.createElement("h3");
-  // h3Models.classList.add("h3-models");
-  // h3Models.textContent = "Models:";
 
-  // sukuriu hr
+  // sukuriu hr kad atskirtu models nuo brands
   const hr = createHtmlEl("hr");
-  // const hr = document.createElement("hr");
 
   // suku cikla ir dedu modelius i lista
   models.forEach((element) => {
     const li = createHtmlEl("li", "models-li", element);
-    // const li = document.createElement("li");
 
-    // li.textContent = element;
     ul.append(li);
   });
 
+  // issivalau ul konteineri nes kai click du kartus jis dadeda is naujo sarasa
   ulContainerDiv.innerHTML = "";
+
+  // i ul su apendinu jo sarase esamus elementus
   ulContainerDiv.append(hr, h3Models, ul);
 }
 
